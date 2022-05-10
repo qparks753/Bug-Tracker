@@ -1,0 +1,42 @@
+.top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+      .widgetbtn{
+          height:30px;
+                     color:white;
+                     background-color: royalblue;
+                     border: none;
+                     border-radius: 5px;
+      }
+
+     
+  }
+  .cellAction{
+    display:flex;
+    align-items: center;
+    gap:13px;
+    .editButton{
+        padding:7px;
+        border-radius:6px;
+        color:rgb(1, 2, 5);
+        border:1px solid rgba(148, 92, 9, 0.562)
+    }
+
+    .deleteButton{
+        padding:7px;
+        border-radius:6px;
+        color:rgb(225, 65, 65);
+        border:1px solid rgba(148, 9, 9, 0.322) 
+    }
+    .viewButton{
+        padding:7px;
+        border-radius:6px;
+        color:rgb(97, 225, 65);
+        border:1px solid rgba(9, 148, 16, 0.322) ;
+        &:hover{
+            background-color: blue; //can delete, highlights clickable functionaility;
+        }
+    }
+    
+}

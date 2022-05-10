@@ -2,8 +2,10 @@ import React from 'react'
 import "./home.scss"
 import Sidebar from '../../Components/sidebar/Sidebar'
 import Navbar from "../../Components/navbar/Navbar"
-import Widget from '../../Components/widgets/Widget'
-import Widget2 from '../../Components/widgets/Widget2'
+import Projects from '../../Components/projects/Projects'
+import Projects2 from '../../Components/projects/Projects2'
+
+
 
 const Home = () => {
   return (
@@ -11,10 +13,11 @@ const Home = () => {
     <Sidebar />
     <div className='homeContainer'>
      < Navbar/>
-     <div className="widgets">
-       <Widget />
-       <Widget2 />
-     </div>
+     <div className="hometitle"></div>
+      <Projects2 />
+      
+     
+ 
     </div>
     
     </div>

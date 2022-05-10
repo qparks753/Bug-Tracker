@@ -1,0 +1,12 @@
+.tickets{
+    display: flex;
+    width: 100%;
+
+    .ticketsContainer{
+    flex:6;
+    }
+
+    .ticketsdiv{
+        margin: 10px;
+    }
+}
