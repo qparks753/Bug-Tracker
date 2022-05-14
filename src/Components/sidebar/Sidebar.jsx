@@ -18,36 +18,42 @@ const Sidebar = () => {
 
       <div className="center">
         <ul>
-          
-          <li>
+          <a href="/" style={{textDecoration:"none"}}>
+          <li >
               <DashboardIcon className="icon"/>
             <span>Dashboard</span>
           </li>
-
+          </a>
+           
+           <a href="/users " style={{textDecoration:"none"}}>
           <li>
               <SupervisedUserCircleRoundedIcon className="icon"/>
             <span>Users</span>
           </li>
+          </a>
 
+           <a href="/tickets" style={{textDecoration:"none"}}>
           <li>
               <BugReportRoundedIcon className="icon"/>
             <span>Tickets</span>
           </li>
-
-          <li>
+          </a>
+          {/* <li>
               <QueryStatsRoundedIcon className="icon"/>
             <span>Stats</span>
-          </li>
-
+          </li> */}
+            
+            <a href="/profile" style={{textDecoration:"none"}}>
           <li>
               <AccountCircleOutlinedIcon className="icon"/>
             <span>Profile</span>
           </li>
+          </a>
 
-          <li>
+          {/* <li>
               <SettingsOutlinedIcon className="icon"/>
             <span>Settings</span>
-          </li>
+          </li> */}
 
           <li>
             <ExitToAppRoundedIcon className="icon"/>
