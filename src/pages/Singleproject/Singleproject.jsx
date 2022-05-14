@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useParams} from "react";
 // import "./Singleuser.scss";
 import "./Singleproject.scss";
 import Sidebar from "../../Components/sidebar/Sidebar";
@@ -16,7 +16,7 @@ import Typography from "@mui/material/Typography";
 // import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const Singleproject = () => {
-  // const { projectid } = useParams();
+  const { projectid } = useParams();
   // const [project, setProject] = useState(null);
 
   // useEffect(() => {
@@ -26,7 +26,7 @@ const Singleproject = () => {
   //     .then(data => setProject(data))
   //     .catch(e=>alert(e.message));
 
-  // }, [peopleid]);
+  // }, [projectid]);
 
   // if(!project){
   //   return <h1 className="mt-2 d-flex justify-content-center">Loading...</h1>;
@@ -40,7 +40,7 @@ const Singleproject = () => {
   //     •
   //   </Box>
   // );
-
+ 
   return (
     <div className="single">
       <Sidebar />
@@ -48,7 +48,9 @@ const Singleproject = () => {
         <Navbar />
         {/* Single */}
         <div className="projectitem">
-          <Card sx={{ minWidth: 600,  textAlign:"center" }}> {/*275*/}
+
+        {/* {projects.map(project=>(            will uncover when api works*/} 
+          <Card key={projectid} sx={{ minWidth: 600,  textAlign:"center" }}> {/*275*/}
             <CardContent >
               <Typography
                 sx={{ fontSize: 18 }}           
@@ -77,6 +79,7 @@ const Singleproject = () => {
               <Button id="singlebtn" size="small" >Learn More Return</Button>
             </CardActions>
           </Card>
+           {/* ))} */}
         </div>
       </div>
     </div>

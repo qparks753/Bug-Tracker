@@ -1,9 +1,21 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 // import "./ticketscomp.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import "./Projects.scss"
+import {Link} from "react-router-dom"
 
 const Projects = () => {
+
+
+  const [projects,setProjects] = useState([]);
+
+  useEffect(()=>{
+   fetch("url")
+   .then(res=>res.json)
+   .then(data => setProjects(data))
+   .catch(e => alert(e.message))
+  },[])
+
   const columns = [
     { field: "id", headerName: "ID", width: 40 },
     { field: "ProjectTitle", headerName: "Projects", width: 150 },
@@ -13,7 +25,7 @@ const Projects = () => {
       headerName: "Description",
       maxWidth:1000,
       width:400
-     
+      
       // type: 'string',
       // width: 500,
     },
@@ -44,8 +56,8 @@ const Projects = () => {
   const actions = [{field:"action", headerName:"Actions",width:200, renderCell:()=>{
     return (
       <div className="cellAction">
-        <div className="viewButton"> View</div>
-        <div className="editButton">Edit</div>
+        <div className="viewButton"><Link to={`/${projects.ID}`}></Link> View</div>
+        <div className="editButton"><Link to={`/updateproject/${projects.ID}`}></Link>Edit</div>
         <div className="deleteButton"> Delete</div>
       </div>
     );
@@ -66,7 +78,7 @@ const Projects = () => {
         <button className="widgetbtn">New Projects</button>
       </div>
       <DataGrid
-        rows={rows}
+        rows={rows}  // will be tickets when api works
         columns={columns.concat(actions)}
         pageSize={5}
         rowsPerPageOptions={[5]}
