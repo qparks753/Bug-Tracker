@@ -12,23 +12,25 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Tickets from "../../Components/tickets/Ticketscomp";
+import { Link } from "react-router-dom";
 // import Projects from "../../Components/projects/Projects2";
 // import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const Singleticket = () => {
-//   const { projectid } = useParams();
-//   const [project, setProject] = useState(null);
+//   const { ticketid } = useParams();
+//   const [ticket, setTicket] = useState(null);
 
   // useEffect(() => {
 
-  //   fetch(`https://ghibliapi.herokuapp.com/people/${peopleid}`)
+  //   fetch(`url/${peopleid}`)
   //     .then(res => res.json())
-  //     .then(data => setProject(data))
+  //     .then(data => setTicket(data))
   //     .catch(e=>alert(e.message));
 
-  // }, [peopleid]);
+  // }, [ticketid]);
 
-  // if(!project){
+  // if(!ticket){
   //   return <h1 className="mt-2 d-flex justify-content-center">Loading...</h1>;
   // };
 
@@ -48,7 +50,9 @@ const Singleticket = () => {
         <Navbar />
         {/* Single */}
         <div className="ticketitem">
-          <Card sx={{ minWidth: 600,  textAlign:"center" }}> {/*275*/}
+
+          {Tickets.map(ticket=>(
+          <Card key={ticket.id} sx={{ minWidth: 600,  textAlign:"center" }}> {/*275*/}
             <CardContent >
               <Typography
                 sx={{ fontSize: 18 }}           
@@ -56,11 +60,11 @@ const Singleticket = () => {
                 //  {/*14*/}
                 gutterBottom
               >
-                {/* {tickets.id} */}
+                {/* {ticket.ID} */}
                 ID: 4
               </Typography>
               <Typography variant="h5" component="div">
-                {/* {tickets.Ticket Title} */}
+                {/* {ticket.Ticket_Title} */}
                 Error Code
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
@@ -81,15 +85,16 @@ const Singleticket = () => {
                 {/* {ticket.Priority} */}
               </Typography>
               <Typography variant="body2">
-                {/* well meaning and kindly. */}
+               
                 <br />
-                {/* {'"a benevolent smile"'} */}
+               
               </Typography>
             </CardContent>
             <CardActions sx={{display:"flex", justifyContent:"center"}}>
-              <Button id="singlebtn" size="small" >Learn More Return</Button>
+              <Button id="singlebtn" size="small" > Return</Button>
             </CardActions>
           </Card>
+          ))}
         </div>
       </div>
     </div>
