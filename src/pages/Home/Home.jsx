@@ -17,7 +17,6 @@ const Home = () => {
      <div className="mainContainer">
      <div className="hometitle"></div>
       <Projects2 />
-      
      
     </div>
     <div className="chartContainer">

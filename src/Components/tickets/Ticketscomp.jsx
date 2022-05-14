@@ -16,6 +16,9 @@ const Tickets = () => {
       // type: 'string',
       // width: 500,
     },
+    { field: "TicketStatus", headerName: "Ticket Status", width: 100 },
+    { field: "TicketType", headerName: "Ticket Type", width: 100 },
+    { field: "Priority", headerName: "Priority", width: 100 },
   ];
 
   const rows = [
@@ -23,20 +26,29 @@ const Tickets = () => {
       id: 1,
       TicketTitle:"Error",
       Author: "Jennifer Snow",
-      Description: "There is a error code"
+      Description: "There is a error code",
+      TicketStatus: "OPEN",
+      TicketType: "Error Code",
+      Priority: "Medium"
 
     },
     {
         id: 2,
         TicketTitle:"Error",
         Author: "Jennifer Snow",
-        Description: "There is a error code"
+        Description: "There is a error code",
+        TicketStatus: "OPEN",
+        TicketType: "Error Code",
+        Priority: "Medium"
     },
     {
         id: 3,
         TicketTitle:"Error",
         Author: "Jennifer Snow",
-        Description: "There is a error code"
+        Description: "There is a error code",
+        TicketStatus: "OPEN",
+        TicketType: "Error Code",
+        Priority: "Medium"
     }
   ];
 

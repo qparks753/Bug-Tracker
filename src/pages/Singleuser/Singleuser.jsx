@@ -1,6 +1,5 @@
 import React from "react";
-// import "./Singleuser.scss";
-import "./Singleproject.scss";
+import "./Singleuser.scss";
 import Sidebar from "../../Components/sidebar/Sidebar";
 import Navbar from "../../Components/navbar/Navbar";
 // import { useEffect, useState } from "react";
@@ -15,9 +14,9 @@ import Typography from "@mui/material/Typography";
 // import Projects from "../../Components/projects/Projects2";
 // import { alignProperty } from "@mui/material/styles/cssUtils";
 
-const Singleproject = () => {
-  // const { projectid } = useParams();
-  // const [project, setProject] = useState(null);
+const Singleuser = () => {
+//   const { projectid } = useParams();
+//   const [project, setProject] = useState(null);
 
   // useEffect(() => {
 
@@ -32,14 +31,14 @@ const Singleproject = () => {
   //   return <h1 className="mt-2 d-flex justify-content-center">Loading...</h1>;
   // };
 
-  // const bull = (
-  //   <Box
-  //     component="span"
-  //     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  //   >
-  //     •
-  //   </Box>
-  // );
+//   const bull = (
+//     <Box
+//       component="span"
+//       sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
+//     >
+//       •
+//     </Box>
+//   );
 
   return (
     <div className="single">
@@ -47,7 +46,7 @@ const Singleproject = () => {
       <div className="singleContainer">
         <Navbar />
         {/* Single */}
-        <div className="projectitem">
+        <div className="ticketitem">
           <Card sx={{ minWidth: 600,  textAlign:"center" }}> {/*275*/}
             <CardContent >
               <Typography
@@ -56,22 +55,27 @@ const Singleproject = () => {
                 //  {/*14*/}
                 gutterBottom
               >
-                {/* {projects.id} */}
+                {/* {users.id} */}
                 ID: 4
               </Typography>
               <Typography variant="h5" component="div">
-                {/* {projects.project} */}
-                Eccomerce-Website
+                {/* {users.First_Name} */}
+                First Name: Jon 
+              </Typography>
+              <Typography variant="h5" sx={{ mb: 1.5 }} >
+               Last Name:  Snow
+                {/* {users.Last_Name} */}
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                This is a cutting edge approach to creating a website
-                {/* {projects.description} */}
+                Email: Jsnow@gmail.com
+                {/* {users.Email} */}
               </Typography>
-              <Typography variant="body2">
-                {/* well meaning and kindly. */}
-                <br />
-                {/* {'"a benevolent smile"'} */}
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+              Phone : 888-888-8888
+
+                {/* {Users.Phone} */}
               </Typography>
+              
             </CardContent>
             <CardActions sx={{display:"flex", justifyContent:"center"}}>
               <Button id="singlebtn" size="small" >Learn More Return</Button>
@@ -83,4 +87,4 @@ const Singleproject = () => {
   );
 };
 
-export default Singleproject;
+export default Singleuser;

@@ -1,6 +1,6 @@
 import React from "react";
 // import "./Singleuser.scss";
-import "./Singleproject.scss";
+import "./Singleticket.scss";
 import Sidebar from "../../Components/sidebar/Sidebar";
 import Navbar from "../../Components/navbar/Navbar";
 // import { useEffect, useState } from "react";
@@ -15,9 +15,9 @@ import Typography from "@mui/material/Typography";
 // import Projects from "../../Components/projects/Projects2";
 // import { alignProperty } from "@mui/material/styles/cssUtils";
 
-const Singleproject = () => {
-  // const { projectid } = useParams();
-  // const [project, setProject] = useState(null);
+const Singleticket = () => {
+//   const { projectid } = useParams();
+//   const [project, setProject] = useState(null);
 
   // useEffect(() => {
 
@@ -32,14 +32,14 @@ const Singleproject = () => {
   //   return <h1 className="mt-2 d-flex justify-content-center">Loading...</h1>;
   // };
 
-  // const bull = (
-  //   <Box
-  //     component="span"
-  //     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  //   >
-  //     •
-  //   </Box>
-  // );
+//   const bull = (
+//     <Box
+//       component="span"
+//       sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
+//     >
+//       •
+//     </Box>
+//   );
 
   return (
     <div className="single">
@@ -47,7 +47,7 @@ const Singleproject = () => {
       <div className="singleContainer">
         <Navbar />
         {/* Single */}
-        <div className="projectitem">
+        <div className="ticketitem">
           <Card sx={{ minWidth: 600,  textAlign:"center" }}> {/*275*/}
             <CardContent >
               <Typography
@@ -56,16 +56,29 @@ const Singleproject = () => {
                 //  {/*14*/}
                 gutterBottom
               >
-                {/* {projects.id} */}
+                {/* {tickets.id} */}
                 ID: 4
               </Typography>
               <Typography variant="h5" component="div">
-                {/* {projects.project} */}
-                Eccomerce-Website
+                {/* {tickets.Ticket Title} */}
+                Error Code
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                This is a cutting edge approach to creating a website
-                {/* {projects.description} */}
+                There is an error that prevent the user from logging in.
+                {/* {ticket.description} */}
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                Status: OPEN
+                {/* {ticket.Ticket_status} */}
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+               Type: Error
+                {/* {ticket.Ticket_Type} */}
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                Priority: Medium
+
+                {/* {ticket.Priority} */}
               </Typography>
               <Typography variant="body2">
                 {/* well meaning and kindly. */}
@@ -83,4 +96,4 @@ const Singleproject = () => {
   );
 };
 
-export default Singleproject;
+export default Singleticket;
