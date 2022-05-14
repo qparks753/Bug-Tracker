@@ -15,19 +15,19 @@ import Typography from "@mui/material/Typography";
 // import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const Singleuser = () => {
-//   const { projectid } = useParams();
-//   const [project, setProject] = useState(null);
+//   const { userid } = useParams();
+//   const [user, setUser] = useState(null);
 
   // useEffect(() => {
 
-  //   fetch(`https://ghibliapi.herokuapp.com/people/${peopleid}`)
+  //   fetch(`url/${userid}`)
   //     .then(res => res.json())
-  //     .then(data => setProject(data))
+  //     .then(data => setUser(data))
   //     .catch(e=>alert(e.message));
 
-  // }, [peopleid]);
+  // }, [userid]);
 
-  // if(!project){
+  // if(!user){
   //   return <h1 className="mt-2 d-flex justify-content-center">Loading...</h1>;
   // };
 
@@ -47,6 +47,8 @@ const Singleuser = () => {
         <Navbar />
         {/* Single */}
         <div className="ticketitem">
+
+        {/* {user.map(user=>( */} {/*"uncomment when ready for api connection"*/}
           <Card sx={{ minWidth: 600,  textAlign:"center" }}> {/*275*/}
             <CardContent >
               <Typography
@@ -54,7 +56,7 @@ const Singleuser = () => {
                 color="text.secondary"
                 //  {/*14*/}
                 gutterBottom
-              >
+              > 
                 {/* {users.id} */}
                 ID: 4
               </Typography>
@@ -73,7 +75,7 @@ const Singleuser = () => {
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
               Phone : 888-888-8888
 
-                {/* {Users.Phone} */}
+                {/* users.Phone} */}
               </Typography>
               
             </CardContent>
@@ -81,6 +83,7 @@ const Singleuser = () => {
               <Button id="singlebtn" size="small" >Learn More Return</Button>
             </CardActions>
           </Card>
+           {/* ))} */}
         </div>
       </div>
     </div>

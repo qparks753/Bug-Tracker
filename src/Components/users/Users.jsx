@@ -1,8 +1,20 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import "./Users.scss";
 import { DataGrid } from "@mui/x-data-grid";
+import {Link} from "react-router-dom"
 
 const Users= () => {
+
+  const [users,setUsers] = useState([]);
+
+  useEffect(()=>{
+   fetch("url")
+   .then(res=>res.json)
+   .then(data => setUsers(data))
+   .catch(e => alert(e.message))
+  },[])
+
+
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "firstName", headerName: "First name", width: 180 },
@@ -90,6 +102,18 @@ const Users= () => {
     },
   ];
 
+  const actions = [{field:"action", headerName:"Actions",width:200, renderCell:()=>{
+    return (
+      <div className="cellAction">
+        <div className="viewButton"><Link to={`/users/${users.ID}`}></Link> View</div>
+        <div className="editButton"><Link to={`/users/updateuser/${users.ID}`}></Link>Edit</div>
+        <div className="deleteButton"> Delete</div>
+      </div>
+    );
+  
+  }}
+  ];
+
   return (
     <div style={{ height: 400, width: "90%" }}>
       <div className="top">
@@ -97,8 +121,8 @@ const Users= () => {
         <button className="widgetbtn">Add Member</button>
       </div>
       <DataGrid
-        rows={rows}
-        columns={columns}
+        rows={rows} //will be users when api works
+        columns={columns.concat(actions)}
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
