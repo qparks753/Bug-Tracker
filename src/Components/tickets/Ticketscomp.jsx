@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ticketscomp.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 
 
@@ -79,12 +79,18 @@ const Tickets = () => {
   }}
   ];
 
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/tickets/addticket`; 
+    navigate(path);
+  }
+
 
   return (
     <div style={{ height: 400, width: "90%" }}>
       <div className="top">
         <span className="tabletitle">Tickets</span>
-        <button className="widgetbtn">New Ticket</button>
+        <button className="widgetbtn" onClick={routeChange}>New Ticket</button>
       </div>
       <DataGrid
         rows={rows} //will be tickets when api works

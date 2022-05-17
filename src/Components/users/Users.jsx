@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 import "./Users.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 
 const Users= () => {
 
@@ -114,11 +114,17 @@ const Users= () => {
   }}
   ];
 
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/users/adduser`; 
+    navigate(path);
+  }
+
   return (
     <div style={{ height: 400, width: "90%" }}>
       <div className="top">
         <span className="tabletitle">Team</span>
-        <button className="widgetbtn">Add Member</button>
+        <button onClick={routeChange} className="widgetbtn">Add User</button>
       </div>
       <DataGrid
         rows={rows} //will be users when api works

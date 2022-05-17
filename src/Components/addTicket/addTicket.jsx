@@ -173,7 +173,7 @@ export default function Addticket() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Add New User
+              Add New Ticket
             </Button>
           </Box>
         </Box>
