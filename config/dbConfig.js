@@ -3,7 +3,10 @@ module.exports = {
     USER:process.env.REACT_APP_DB_User,
     Password: process.env.REACT_APP_DB_Password,
     DB: process.env.REACT_APP_DB_Name,
-    dialect: process.env.REACT_APP_DB_Dialect,
+    dialect: "mysql",
+
+   
+    
 
 
     pool:{

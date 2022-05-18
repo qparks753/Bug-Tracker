@@ -1,4 +1,4 @@
-import React,{useParams} from "react";
+import React,{useEffect, useState} from "react";
 // import "./Singleuser.scss";
 import "./Singleproject.scss";
 import Sidebar from "../../Components/sidebar/Sidebar";
@@ -14,10 +14,16 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 // import Projects from "../../Components/projects/Projects2";
 // import { alignProperty } from "@mui/material/styles/cssUtils";
+import axios from "axios";
+import {useParams} from "react-router-dom"
+
 
 const Singleproject = () => {
-  const { projectid } = useParams();
-  // const [project, setProject] = useState(null);
+
+   const { projectid } = useParams( );
+   const [project, setProject] = useState(null);
+
+  
 
   // useEffect(() => {
 
@@ -28,9 +34,20 @@ const Singleproject = () => {
 
   // }, [projectid]);
 
-  // if(!project){
-  //   return <h1 className="mt-2 d-flex justify-content-center">Loading...</h1>;
-  // };
+  useEffect(()=>{
+
+    axios.get(`http://localhost:3001/api/projects/${projectid}`)
+    .then((response)=>{
+      setProject(response.data)
+      console.log(response.data)
+      
+    });
+
+  },[projectid ])
+
+  if(!project){
+    return <h1 className="mt-2 d-flex justify-content-center">Loading...</h1>;
+  };
 
   // const bull = (
   //   <Box
@@ -41,15 +58,16 @@ const Singleproject = () => {
   //   </Box>
   // );
  
+
   return (
     <div className="single">
       <Sidebar />
       <div className="singleContainer">
         <Navbar />
         {/* Single */}
-        <div className="projectitem">
+        <div className="projectitem">  
 
-        {/* {projects.map(project=>(            will uncover when api works*/} 
+        {/* {project.map(items=>(            */}
           <Card key={projectid} sx={{ minWidth: 600,  textAlign:"center" }}> {/*275*/}
             <CardContent >
               <Typography
@@ -58,19 +76,19 @@ const Singleproject = () => {
                 //  {/*14*/}
                 gutterBottom
               >
-                {/* {projects.id} */}
-                ID: 4
+                ID: {project.id}
+                
               </Typography>
               <Typography variant="h5" component="div">
-                {/* {projects.project} */}
-                Eccomerce-Website
+                Project: {project.Project}
+                
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                This is a cutting edge approach to creating a website
-                {/* {projects.description} */}
+                
+                Description: {project.Project_Description}
               </Typography>
               <Typography variant="body2">
-                {/* well meaning and kindly. */}
+               Contributors: {project.Contributors}
                 <br />
                 {/* {'"a benevolent smile"'} */}
               </Typography>
@@ -79,7 +97,7 @@ const Singleproject = () => {
               <Button id="singlebtn" size="small" >Learn More Return</Button>
             </CardActions>
           </Card>
-           {/* ))} */}
+            {/* ))}  */}
         </div>
       </div>
     </div>

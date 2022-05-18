@@ -1,10 +1,9 @@
 import React from "react";
-// import "./Singleuser.scss";
 import "./Singleticket.scss";
 import Sidebar from "../../Components/sidebar/Sidebar";
 import Navbar from "../../Components/navbar/Navbar";
-// import { useEffect, useState } from "react";
-// import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 // import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -12,27 +11,31 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Tickets from "../../Components/tickets/Ticketscomp";
-import { Link } from "react-router-dom";
-// import Projects from "../../Components/projects/Projects2";
-// import { alignProperty } from "@mui/material/styles/cssUtils";
+// import Tickets from "../../Components/tickets/Ticketscomp";
+import axios from "axios";
+
+
 
 const Singleticket = () => {
-//   const { ticketid } = useParams();
-//   const [ticket, setTicket] = useState(null);
+  const { ticketid } = useParams();
+  const [ticket, setTicket] = useState(null);
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   fetch(`url/${peopleid}`)
-  //     .then(res => res.json())
-  //     .then(data => setTicket(data))
-  //     .catch(e=>alert(e.message));
+    axios.get(`http://localhost:3001/api/tickets/${ticketid}`)
+    .then((response)=>{
+      setTicket(response.data)
+      console.log(response.data)
+      
+    });
 
-  // }, [ticketid]);
 
-  // if(!ticket){
-  //   return <h1 className="mt-2 d-flex justify-content-center">Loading...</h1>;
-  // };
+
+  }, [ticketid]);
+
+  if(!ticket){
+    return <h1 className="mt-2 d-flex justify-content-center">Loading...</h1>;
+  };
 
 //   const bull = (
 //     <Box
@@ -51,7 +54,7 @@ const Singleticket = () => {
         {/* Single */}
         <div className="ticketitem">
 
-          {Tickets.map(ticket=>(
+          {/* {Tickets.map(ticket=>( */}
           <Card key={ticket.id} sx={{ minWidth: 600,  textAlign:"center" }}> {/*275*/}
             <CardContent >
               <Typography
@@ -60,29 +63,29 @@ const Singleticket = () => {
                 //  {/*14*/}
                 gutterBottom
               >
-                {/* {ticket.ID} */}
-                ID: 4
+               ID: {ticket.id}
+                {/* ID: 4 */}
               </Typography>
               <Typography variant="h5" component="div">
-                {/* {ticket.Ticket_Title} */}
-                Error Code
+                Title: {ticket.Ticket_Title}
+                {/* Error Code */}
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                There is an error that prevent the user from logging in.
-                {/* {ticket.description} */}
+                {/* There is an error that prevent the user from logging in. */}
+                Description: {ticket.Description}
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                Status: OPEN
-                {/* {ticket.Ticket_status} */}
+                {/* Status: OPEN */}
+               Status:  {ticket.Ticket_status}
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-               Type: Error
-                {/* {ticket.Ticket_Type} */}
+               {/* Type: Error */}
+                Type: {ticket.Ticket_type}
               </Typography>
               <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                Priority: Medium
-
-                {/* {ticket.Priority} */}
+                {/* Priority: Medium */}
+                 Priority: {ticket.Priority}
+   
               </Typography>
               <Typography variant="body2">
                
@@ -94,7 +97,7 @@ const Singleticket = () => {
               <Button id="singlebtn" size="small" > Return</Button>
             </CardActions>
           </Card>
-          ))}
+          {/* ))} */}
         </div>
       </div>
     </div>

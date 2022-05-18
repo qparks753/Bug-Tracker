@@ -33,7 +33,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path=":projectid" element={<Singleproject />} />
         <Route path="/projects/addproject" element={<Addproject />}/>
-        <Route path="/projects/updateproject" element={<Updateproject />}/>
+        <Route path="/projects/updateproject/:id" element={<Updateproject />}/>
         
       
 
@@ -48,8 +48,8 @@ function App() {
           {/* <Route path="new" element={<Newuser />}/> */}
         </Route>
         <Route path="users/adduser" element={<Newuser/>} />
-       <Route path="/users/updateuser" element={<Updateuser />}/>
-       <Route path="users/:userid" element={<Singleuser />}/>
+       <Route path="/users/updateuser/:id" element={<Updateuser />}/>
+       <Route path="/users/:userid" element={<Singleuser />}/>
 
 
 
@@ -59,7 +59,7 @@ function App() {
         <Route path="tickets" element ={<Tickets/>}/>
         <Route path="/tickets/addticket" element ={<Newticket/>}/>
         <Route path="/tickets/:ticketid" element={<Singleticket />} />
-        <Route path="/tickets/updateticket" element={<Updateticket />} />
+        <Route path="/tickets/updateticket/:id" element={<Updateticket />} />
 
         {/*Other*/}
         <Route path="register" element ={<Register/>}/>

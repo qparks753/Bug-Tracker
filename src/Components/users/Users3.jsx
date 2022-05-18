@@ -16,43 +16,22 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import "./Projects.scss"
+import "./Users.scss"
 import axios from "axios"
 import {useNavigate, Link} from "react-router-dom"
 
 
-// import { makeStyles } from '@mui/core/makeStyles'
-
-
-
-
-// const useStyles = makeStyles({
-//   table: {
-//     minWidth: 650,
-//   },
-// });
-
-// function createData(ID,projects, descriptions, contributors,actions) {
-//   return { ID, projects, descriptions,contributors,actions };
-// }
-
-//    const rows = [
-//    createData(1,'E-commerce Website', "This is a business website to sell valuable goods across the internet.", "James Ford"),
-//    createData(2,'Hosting Application', "This is a web hosting platform that sells fast hosting for affordable prices", "Samantha Thomas"),
-//    createData(3,'Galaxy Star Game', "This fun video games explores the galaxy", ["David Marley", "Kevin Tim"]),
-  
-// ];
 
 
 export default function Projects() {
-  // const classes = useStyles();
-  const [projects,setProjects] = useState([]);
+  
+  const [users,setUsers] = useState([]);
 
   useEffect(()=>{
  
-    axios.get("http://localhost:3001/api/projects/allProjects")
+    axios.get("http://localhost:3001/api/users/allUsers")
     .then((response)=>{
-      setProjects(response.data)
+      setUsers(response.data)
       console.log(response.data)
     });
 
@@ -63,7 +42,7 @@ export default function Projects() {
 
 let navigate = useNavigate(); 
 const routeChange = () =>{ 
-  let path = `./projects/addproject`; 
+  let path = `./adduser`; 
   navigate(path);
 }
 
@@ -73,8 +52,8 @@ const routeChange = () =>{
      <div className="container">
 
      <div className="header" style={{display:"flex", justifyContent:"space-evenly", marginTop:"25px"}}>
-       <span className="project-title">Projects</span>
-       <button className="project-btn" onClick={routeChange} > Add Project</button>
+       <span className="project-title">Users</span>
+       <button className="project-btn" onClick={routeChange} > Add User</button>
      </div>
 
 
@@ -95,28 +74,31 @@ const routeChange = () =>{
         <TableHead>
           <TableRow className="project-descriptions">
           <TableCell align="center">ID</TableCell>
-            <TableCell align="center">Projects</TableCell>
-            <TableCell align="center">Descriptions</TableCell>
-            <TableCell align="center">Contributors</TableCell>
+            <TableCell align="center">First Name</TableCell>
+            <TableCell align="center">Last Name</TableCell>
+            <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Phone</TableCell>
             <TableCell align="center">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {projects.map((project) => (
-            <TableRow key={project.id}>
-               <TableCell align="right">{project.id}</TableCell>
+          {users.map((user) => (
+            <TableRow key={user.id}>
+               <TableCell align="right">{user.id}</TableCell>
               <TableCell component="th" scope="row">
-                {project.Project}
+                {user.FirstName}
                 
               </TableCell>
-              <TableCell align="right">{project.Project_Description}</TableCell>
-              <TableCell align="right">{project.Contributors}</TableCell>
+              <TableCell align="right">{user.LastName}</TableCell>
+              <TableCell align="right">{user.Email}</TableCell>
+              <TableCell align="right">{user.Phone}</TableCell>
               <TableCell align="right">
                 {
               <div className="cellAction">
 
-                <Link className="viewButton" to={`/${project.id}`}>View</Link>
-                <Link className="viewButton" to={`/projects/updateproject/${project.id}`}>Edit</Link>
+                <Link className="viewButton" to={`/users/${user.id}`}>View</Link>
+                <Link className="viewButton" to={`/users/updateuser/${user.id}`}>Edit</Link>
+
                 <div className="deleteButton "> Delete</div>
                 </div>
                   }

@@ -6,7 +6,7 @@ import {Link,useNavigate} from "react-router-dom"
 const Users= () => {
 
   const [users,setUsers] = useState([]);
-
+  
   useEffect(()=>{
    fetch("url")
    .then(res=>res.json)

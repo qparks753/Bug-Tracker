@@ -4,16 +4,17 @@ const cors = require("cors")
 
 const app = express();
 
-const corOptions = {
-origin:"https://localhost:3000"
-}
+// const corOptions = {
+// origin:"https://localhost:3000"
+// }
 
 
 
 
 //middleware
 
-app.use(cors(corOptions))
+// app.use(cors(corOptions))
+app.use(cors())
 
 app.use(express.json())
 
@@ -43,8 +44,7 @@ app.use("/api/users", router3)
 
 //Port
 
-const PORT = process.env.PORT || 3000
-
+const PORT = process.env.PORT || 3001 
 //Server
 
 app.listen(PORT,()=>{

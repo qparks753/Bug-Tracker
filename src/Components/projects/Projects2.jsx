@@ -3,25 +3,34 @@ import React,{useEffect,useState} from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import "./Projects.scss"
 import {Link,useNavigate} from "react-router-dom"
+import axios from "axios";
+import { setSelectionRange } from "@testing-library/user-event/dist/utils";
+
 
 const Projects = () => {
 
 
   const [projects,setProjects] = useState([]);
+  const [selection,setSelection] = useState([]);
 
   useEffect(()=>{
-   fetch("url")
-   .then(res=>res.json)
-   .then(data => setProjects(data))
-   .catch(e => alert(e.message))
-  },[])
+ 
+    axios.get("http://localhost:3001/api/projects/allProjects")
+    .then((response)=>{
+      setProjects(response.data)
+      console.log(response.data)
+    });
+
+
+  
+},[])
 
   const columns = [
     { field: "id", headerName: "ID", width: 40 },
-    { field: "ProjectTitle", headerName: "Projects", width: 150 },
+    { field: "Project", headerName: "Projects", width: 150 },
     { field: "Contributors", headerName: "Contributors", width: 300 },
     {
-      field: "Description",
+      field: "Project_Description",
       headerName: "Description",
       maxWidth:1000,
       width:400
@@ -31,32 +40,33 @@ const Projects = () => {
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      ProjectTitle:"E-commerce Website",
-      Contributors: "James Ford",
-      Description:  "This is a business website to sell valuable goods across the internet."
+  // const rows = [
+  //   {
+  //     id: 1,
+  //     ProjectTitle:"E-commerce Website",
+  //     Contributors: "James Ford",
+  //     Description:  "This is a business website to sell valuable goods across the internet."
 
-    },
-    {
-        id: 2,
-        ProjectTitle:"Hosting Application",
-        Contributors: "Samantha Thomas",
-        Description:  "This is a web hosting platform that sells fast hosting for affordable prices"
-    },
-    {
-        id: 3,
-        ProjectTitle:"Galaxy Star Game",
-        Contributors: ["David Marley", "Kevin Tim"],
-        Description:  "This fun video games explores the galaxy"
-    }
-  ];
+  //   },
+  //   {
+  //       id: 2,
+  //       ProjectTitle:"Hosting Application",
+  //       Contributors: "Samantha Thomas",
+  //       Description:  "This is a web hosting platform that sells fast hosting for affordable prices"
+  //   },
+  //   {
+  //       id: 3,
+  //       ProjectTitle:"Galaxy Star Game",
+  //       Contributors: ["David Marley", "Kevin Tim"],
+  //       Description:  "This fun video games explores the galaxy"
+  //   }
+  // ];
 
   const actions = [{field:"action", headerName:"Actions",width:200, renderCell:()=>{
     return (
       <div className="cellAction">
-        <div className="viewButton"><Link to={`/${projects.ID}`}></Link> View</div>
+        {/* <div className="viewButton"><Link to={`/1`}></Link> View</div> */}
+        <div className="viewButton" > View</div>
         <div className="editButton"><Link to={`/updateproject/${projects.ID}`}></Link>Edit</div>
         <div className="deleteButton"> Delete</div>
       </div>
@@ -65,13 +75,22 @@ const Projects = () => {
   }}
   ];
 
+  // add project
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
     let path = `./projects/addproject`; 
     navigate(path);
   }
 
+  // view specific project
+  let  navigate2 = useNavigate(); 
+  const routeChange2 = () =>{ 
+    let path = `/${9}`; 
+    navigate2(path);
+  }
 
+
+  
 
 
   return (
@@ -82,11 +101,20 @@ const Projects = () => {
         <button onClick={routeChange} className="widgetbtn">New Projects</button>
       </div>
       <DataGrid
-        rows={rows}  // will be tickets when api works
+        rows={projects}  // will be tickets when api works
         columns={columns.concat(actions)}
         pageSize={5}
         rowsPerPageOptions={[5]}
-        checkboxSelection
+        checkboxSelection ={true}
+        onSelectionModelChange={(id)=>{
+           
+        }}
+        
+        
+        
+        
+       
+      
       />
     </div>
 

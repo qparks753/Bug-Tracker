@@ -3,8 +3,11 @@ import "./home.scss"
 import Sidebar from '../../Components/sidebar/Sidebar'
 import Navbar from "../../Components/navbar/Navbar"
 // import Projects from '../../Components/projects/Projects'
-import Projects2 from '../../Components/projects/Projects2'
+//import Projects2 from '../../Components/projects/Projects2'
 import Charts from '../../Components/charts/Charts.jsx'
+import Projects3 from '../../Components/projects/projects3'
+import Projects from '../../Components/projects/Projects'
+
 
 
 
@@ -16,7 +19,10 @@ const Home = () => {
      < Navbar/>
      <div className="mainContainer">
      <div className="hometitle"></div>
-      <Projects2 />
+      {/* <Projects2 /> */}
+      {/* <Projects3 /> */}
+      <Projects />
+    
      
     </div>
     <div className="chartContainer">

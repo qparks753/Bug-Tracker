@@ -2,7 +2,8 @@ import React from 'react'
 import Sidebar from "../../Components/sidebar/Sidebar";
 import "./List.scss"
 import Navbar from "../../Components/navbar/Navbar"
-import Users from '../../Components/users/Users';
+// import Users from '../../Components/users/Users';
+import Users3 from '../../Components/users/Users3';
 
 const List = () => {
   return (
@@ -11,7 +12,8 @@ const List = () => {
     <div className="listContainer">
       <Navbar />
       <div className="userdiv">
-      <Users />
+      {/* <Users /> */}
+      < Users3 />
       </div>
     </div>
 
